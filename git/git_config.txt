@@ -1,0 +1,11 @@
+git config --global user.name 
+
+git config --global user.email 
+
+
+git config --global push.default matching
+
+git config --global core.quotepath false
+
+git config --global core.editor "vim"
+
