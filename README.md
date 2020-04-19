@@ -69,6 +69,120 @@ XML技术
 
 向导同时操
 
+脚本化的ACT插件= XML文件+ IronPython脚本文件=编译=二
+
+进制的WwX文件
+
+Optional （HEML）自定义说明帮助文档
+
+脚本文件夹 与 XML文件 放在同一个文件夹 并且要同名
+
+XML文件：定义UI界面内容，插件属性，事件与脚本函数绑定 
+
+回调函数
+
+标记语言 携带数据 如材料属性的定义
+标记 不同程序都有自己的标记 ACT也有自己的标记
+标签 <> </>
+节点 
+元素
+元素属性
+注释<!--    -->
+<extension>定义
+   <wizard>定义
+	<step>定义
+		<property>
+		<propertyGroup>
+			<Control>
+<callbacks>
+
+XML 文件结构不熟悉 编写不方便
+
+可以通过可视化Appbuild创建
+高级的空间 可以通过 在当前界面显示XML编辑器,在当前窗
+
+口显，有一点显示差异
+
+OptionalAttributes: 
+Caption  
+Property
+
+回调函数绑定脚本代码
+
+
+IronPython 脚本
+实现插件的功能书写，定义事件的调用函数（事件驱动），
+
+支持外部库的访问
+
+保存 导出脚本扩展 xxx.XML
+
+简化XML文件删除无效代码 为了后期的维护
+
+xml文件中 
+
+<script src="main.py"/>
+同名文件夹下，Image文件夹 Help文件夹 用户帮助文档HTML
+
+界面美化
+
+图标位置 
+
+<interface context= "SpaceClaim">
+<images> images</images>
+</interface>
+
+注意相对路径
+
+<callbacks>
+ <onupdate> onundateGeoStep</onupdate>
+ <onreset> <> 上一步
+</callbacks>
+
+
+
+main.py
+封装
+morenbianma shi ASCII 
+# encoding: utf-8
+ACT Console 默认没有导入，需要重新定义
+def clearAll():
+
+
+def CreateGeo(length windth)：
+
+
+def onupdateGeoStep(step):
+获取界面值
+bladeWindth = step.Propertities
+
+["grp/bladewindth"].Value
+调用函数
+CreateGeo(bladeWindth)
+
+
+
+def onupdateNsStep(step):
+
+获取值判断
+
+Application.Helper.ReportInformation("OK")
+
+加载到WB 打开log 可以记录提示,
+ShareTolopoly.FindANdFix（）
+
+ACT console类 与 解释器类 不一致
+涉及到API调用
+打开ACTconsole
+clr.reference ACT控制台引用的类库
+SpaceClame V17API 涉及到新功能
+clr.AppReference("spaceClaim.Api.V18")
+
+From spaceClaim.ApiV18 import 
+缺库补充
+
+Build 3rd
+<script src="main.py" compiled=True/>
 
 ### 全封装工具
 
