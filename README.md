@@ -88,6 +88,7 @@ XML文件：定义UI界面内容，插件属性，事件与脚本函数绑定
 元素
 元素属性
 注释<!--    -->
+'''
 <extension>定义
    <wizard>定义
 	<step>定义
@@ -95,7 +96,7 @@ XML文件：定义UI界面内容，插件属性，事件与脚本函数绑定
 		<propertyGroup>
 			<Control>
 <callbacks>
-
+'''
 XML 文件结构不熟悉 编写不方便
 
 可以通过可视化Appbuild创建
@@ -182,18 +183,38 @@ From spaceClaim.ApiV18 import
 缺库补充
 
 Build 3rd
-<script src="main.py" compiled=True/>
+'''<script src="main.py" compiled=True/>'''
 
+
+### 
 ### 全封装工具
 
 
 CPython 开发GUIUI界面
+1.获取界面输入 2.修改脚本参数 3.批处理调用 4.用户体验的状态显示框
+5.测试 6.打包发布
+
+Tkinter Classes 获取常用控件的帮助
+结构： 根窗体root 菜单栏 状态栏 控件 容器
+
+
+面向过程的不利于代码管理
+面对对象的封装 类编程
+
+'''
+# encoding：utf-8
+
+
+
+
+'''
+
+
+
 界面收集的的数据与脚本进行整合
-通
-
-过批处理方式
-
+通过批处理方式
 设计到GUI开发多线程问题
+
 
 
 
