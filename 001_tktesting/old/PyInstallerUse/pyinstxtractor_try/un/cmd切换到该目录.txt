@@ -1,0 +1,18 @@
+然后cmd命令行窗口到该目录下，执行
+python pyinstxtractor.py delet.exe
+
+三秒后，反编译完成
+
+在新生成的_extracted文件夹下，找到delet
+
+重命名为delet.pyc
+然后到反编译网站https://python-decompiler.com/
+（网址后台会一并给出）
+
+选择这个delet.pyc，稍等片刻源码一览无余
+和咱们编译前的代码是不是一摸一样
+
+
+利用这个方法就能破解简单的python写的软件
+多脚本文件需要进一步反编译具体就不阐述了
+示例代码和exe和逆向脚本以及反编译网址在公众号后台一并给出

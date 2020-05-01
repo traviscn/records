@@ -1,0 +1,1 @@
+pyinstaller --noconfirm --onefile --windowed --icon="QQ.ico" app.py

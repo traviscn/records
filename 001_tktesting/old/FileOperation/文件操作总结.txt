@@ -1,0 +1,101 @@
+打开文件后，记着关闭文件
+    obj = open(文件路径,mode='rb')
+    xxxxxx
+    obj.close()
+    
+    自动关闭
+    with open(文件路径,mode='rb') as obj:
+        xxxxxx
+    # 代码执行完毕后，自动关闭文件
+
+文件操作
+	操作文件三要素：
+		1. 路径：绝对路径 相对路径
+		2. 编码：utf-8
+		3. 模式：+ 读写 b 字节直接读写 图片视频等 一共12中模式
+                有b就不需要编码格式encoding=“utf-8”
+				- rb
+				- r
+				- r+     *****
+				- r+b
+				- wb
+				- w
+				- w+
+				- w+b
+				- ab
+				- a
+				- a+
+				- a+b
+	功能：
+		obj = open(文件路径,mode='rb') 文件句柄、文件操作符,默认只读模式
+
+		obj.read() # 读取所有文件内容 返回一个字符串
+		obj.readlines() read 读整个文件 返回一个列表
+		obj.readline()
+		for line in obj:   # 等价于 py2 obj.xreadlines()
+			print(line)
+
+		obj.write()
+		obj.seek()# 永远是字节，指定指针位置
+		obj.tell()# 读取当前指针的位置obj.seek(6obj.tell())
+		obj.close()
+		obj.flush() # 将内存中内容刷到硬盘
+        
+   
+        obj = open('aaaaaaaa',mode='w',encoding='utf-8')
+        while True:
+            data = input('>>>')
+            obj.write(data)
+            obj.flush()  
+        obj.close()
+		
+		
+			
+	只读：
+		- open(文件路径,mode='rb')
+            # 1. 文件在硬盘上时，一定是：utf-8,gbk......
+            # 2. rb, bytes,                  rb     读取字节类型
+            # 3. r,  转换encoding=utf-8      r   encoding:utf-8  读取字符串类型
+		- open(文件路径,mode='r',encoding='utf-8')
+            读取utf-8编码数据，【转换】成unicode（str）编码的数据	
+			示例：
+			obj = open('D:\美女模特空姐护士联系方式.txt',encoding='utf-8',mode='r')
+			content = obj.read() # 字符串类型
+			obj.close()
+			print(content)
+			
+			obj = open('D:\美女模特空姐护士联系方式.txt',mode='rb')
+			content = obj.read() # bytes类型
+			obj.close()
+			print(content)
+	只写：
+		- open(文件路径,mode='wb')
+		- open(文件路径,mode='w',encoding='utf-8') #把原来的文件清空
+		
+			示例：
+				 obj = open('美女.txt',mode='w',encoding='utf-8')
+				 obj.write("海角-贾敏")
+				 obj.close()
+				 obj = open('美女.txt',mode='wb')
+				 obj.write("海角-贾敏22222".encode('utf-8'))
+				 obj.close()
+					
+	只追加：
+		- open(文件路径,mode='ab')
+		- open(文件路径,mode='a',encoding='utf-8')
+		
+		obj = open('美女.txt',mode='a',encoding='utf-8')
+		obj.write("小红")
+		obj.close(
+		obj = open('美女.txt',mode='ab')
+		obj.write("龙哥".encode('utf-8'))
+		obj.close()
+    
+    读写
+        f = open('file','r+',encoding='utf-8')#打开文件的时候：不清空文件
+        print(f.readline())
+        f.write('wusir|66|male')
+        f.close()
+        #当用户不执行读操作，写默认从开始覆盖
+        #当用户读取操作之后，写的所有内容都变成追写
+        #不要同时读写操作一个文件

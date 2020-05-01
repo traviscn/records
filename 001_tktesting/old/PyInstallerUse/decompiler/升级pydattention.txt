@@ -1,0 +1,49 @@
+不管 有没有壳， 都是先搞成 pyc， 在接着往下。可以隆成pyd 动态的。
+
+如何解决呢，可以考虑将模块py文件编译为动态链接库，这样破解难度将大大增加。其中，在python里，pyd格式即动态链接库。使用cython即可编译，如果是anaconda是自带，python有的可能不带cython，安装即可：
+
+pip install Cython
+我们在main.py所在的文件夹新建py文件，在此处我命名为build_pyd.py，其内容如下：
+
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Aug 29 13:33:20 2018
+
+@author: Li Zeng hai
+"""
+
+
+from distutils.core import setup
+from Cython.Build import cythonize
+ 
+setup(
+  name = 'any words.....',
+  ext_modules = cythonize(["mylib.py",
+
+                           
+                           ]
+  ),
+)
+然后执行以下cmd命令：
+
+python build_pyd.py build_ext --inplace
+运行过程及生成结果如下图，其中红框的pyd文件即编译好了。因为我是64位的系统和python，所以会生成amd64后缀，我们把这个删掉重命名为mylib.pyd即可。
+
+注：当同时存在mylib.pyd和mylib.py时，引入优先级是pyd>py，所以不用移除py文件，默认引入时就是pyd。
+
+
+此时，我们删除build、disk文件夹，重复步骤二，再次编译为exe即可。
+
+注意：编译需要相关的VC环境，因为python3.5是基于 VS14版本的，所以我这里安装的也是。不安装是无法编译的。
+
+可以验证一下：
+
+再次反编译main.exe后，原来的路径E:\t\dist\main.exe_extracted\out00-PYZ.pyz_extracted之下，已经找不到mylib.pyc了。
+
+因为他已经不是可以直接反编译出来的文件了。
+
+那么他在哪呢，他是作为pyd存在于上层目录中了。如下图：
+
+
+pyd的反编译难度是相当高的，至此，就大功告成了！
+

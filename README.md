@@ -195,26 +195,54 @@ CPython 开发GUIUI界面
 5.测试 6.打包发布
 
 Tkinter Classes 获取常用控件的帮助
-结构： 根窗体root 菜单栏 状态栏 控件 容器
-
-
+结构： 根窗体root （Self）菜单栏 状态栏 控件 容器
+tk 布局grid pack 不能冲突 用容器隔开
+GUI创建 成功
 面向过程的不利于代码管理
 面对对象的封装 类编程
+Class XXX（）：
+  __init()__:
 
-'''
-# encoding：utf-8
-
-
-
-
-'''
+  def x():
+		pass
+def 没有return？？
 
 
+继承类创建窗口
+class BrgApp(tk):
+	def __init__():
+		super(BrgApp,self).__init__()
+		self.title(("Brige App"))
+		self.geometry("640x540+60+250")
+		self.setup_UI()
+
+	def setup_ui():
+		pass
+button.config()
+
+root= tk.tk()
+GUI(root)
+root.mainloop()
+
+if __name__ == '__main__';
+
+在创建叫脚本类？单独对脚本进行处理
+def solve
+GUI界面添加点击事件: 获取洁面参数 按钮不可见  脚本修改 
+
+def run_scdm():
+调用较多单独成立
+ scdmApp=os.path.join
+ batchcmd= r""{}"/RunScript="{}""
+retu=subprocess.run(batchcmd,shell=True)
+if retu.returncode = = 0:
+
+批处理调用 subprocess。run()
 
 界面收集的的数据与脚本进行整合
 通过批处理方式
 设计到GUI开发多线程问题
-
+本质是并发编程！！！
 
 
 

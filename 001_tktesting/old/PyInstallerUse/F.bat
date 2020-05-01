@@ -1,0 +1,1 @@
+pyinstaller --windowed --onefile --icon="QQ.ico" --name="666" --key=12345645612378 --clean app.py 
