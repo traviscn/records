@@ -16,7 +16,7 @@ class GuiMaster:
         self.master = master
         self.master.title('Sundy Note')
         self.master.geometry("800x800+100+100")
-        self.master.iconbitmap("q.ico")
+        # self.master.iconbitmap("q.ico")
         #变量定义？？
         filename=""
         self.menu_ui()
